@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="container">
+    <div id="text">
+      <p><b>Roulette - Functions in JavaScript</b></p>
+    </div>
+
+
+    <!-- THis HTML should be generated though JS, see exercise 5 -->
+    <!-- <div id="table">
+      <div class="number green" id="n0">0</div>
+      <div class="number red" id="n1">1</div>
+      <div class="number black" id="n2">2</div>
+      <div class="number red" id="n3">3</div>
+      <div class="number black" id="n4">4</div>
+      <div class="number red" id="n5">5</div>
+      <div class="number black" id="n6">6</div>
+      <div class="number red" id="n7">7</div>
+      <div class="number black" id="n8">8</div>
+      <div class="number red selected" id="n9">9</div>
+      <div class="number black" id="n10">10</div>
+      <div class="number black" id="n11">11</div>
+      <div class="number red" id="n12">12</div>
+      <div class="number black" id="n13">13</div>
+      <div class="number red" id="n14">14</div>
+      <div class="number black" id="n15">15</div>
+      <div class="number red" id="n16">16</div>
+      <div class="number black" id="n17">17</div>
+      <div class="number red" id="n18">18</div>
+      <div class="number red" id="n19">19</div>
+      <div class="number black" id="n20">20</div>
+      <div class="number red" id="n21">21</div>
+      <div class="number black" id="n22">22</div>
+      <div class="number red" id="n23">23</div>
+      <div class="number black" id="n24">24</div>
+      <div class="number red" id="n25">25</div>
+      <div class="number black" id="n26">26</div>
+      <div class="number red" id="n27">27</div>
+      <div class="number black" id="n28">28</div>
+      <div class="number black" id="n29">29</div>
+      <div class="number red" id="n30">30</div>
+      <div class="number black" id="n31">31</div>
+      <div class="number red" id="n32">32</div>
+      <div class="number black" id="n33">33</div>
+      <div class="number red" id="n34">34</div>
+      <div class="number black" id="n35">35</div>
+      <div class="number red" id="n36">36</div>
+    </div> -->
+
+    <div id="status">
+      <form>
+        <label for="bankroll">Bankroll: </label>
+        <input id="bankroll" name="bankroll" type="number" value="100">
+
+        <label for="bet">Bet: </label>
+        <input id="bet" name="bet" type="number" value="10">
+
+        <label for="color">Color: </label>
+        <select name="color" id="color">
+          <option value="green">Green</option>
+          <option value="red">Red</option>
+          <option value="black">Black</option>
+        </select>
+
+        <input id="rollBtn" type="submit" value="Roll" onclick="rollGame(event)">
+      </form>
+    </div>
+    
+    <div id="log">
+      <p>Welcome to my Roulette table</p>
+    </div>
+
+  </div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
