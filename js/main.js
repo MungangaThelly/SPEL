@@ -13,22 +13,56 @@ const bankroll      = document.getElementById('bankroll'),
 // table[2] = 'black'
 // table[3] = 'red'
 // And so on ...
-const table     = ['green','red','black','red','black','red','black','red','black','red','black','black','red','black','red','black','red','black','red','red','black','red','black','red','black','red','black','red','black','black','red','black','red','black','red','black','red'];
+const table     = ['green','red','black','red','black','red','black','red','black','red','black',
+                   'black','red','black','red','black','red','black','red','red','black',
+                   'red','black','red','black','red','black','red','black','black','red',
+                   'black','red','black','red','black','red'];
+
+rollBtn.addEventListener('click', rollGame);
 
 function rollGame(event) {
   console.log(event);
   // Prevents all default behavior of the element that the event is attached to
   event.preventDefault();
 
+  // Input validation
+  const betAmount = parseInt(bet.value, 10);
+  const chosencolor = selectedColor.value;
+
+  if (isNaN(betAmount) || betAmount <= 0) {
+    logMessage('Please enter a valid bet amount.');
+    return;
+  }
+
+  if (betAmount > bankroll.value) {
+    logMessage('You cannot bet more than your current bankroll.');
+    return;
+  }
   // Rondom number between 0-36
   const random = Math.floor(Math.random() * 37) + 0;
   const color  = table[random];
 
-  console.log(`Number: ${random}, color: ${table[random]}`)
+  console.log(`Number: ${random}, color: ${color}`);
 
   console.log('You just rolled :)')
-  const logMessage = `<p>Bet is ??? spinning the wheel...Stopped at ?????. You won/lost</p>`
+  const logMessage = `<p>Bet on ${chosencolor}. spinning the wheel...Stopped at ${color}.</p>`
   log.innerHTML = logMessage + log.innerHTML;
+
+  // Determine win or loss
+  if (color === chosencolor) {
+    bankroll.value = parseInt(bankroll.value) + betAmount; //Player wins
+    logMessage(`You won! Your new bankroll is: ${bankroll.value}`);
+  } else {
+    bankroll.value = parseInt(bankroll.value) - betAmount; //Player loses
+    logMessage(`You lost! Your new  bankroll is: ${bankroll.value}`);
+  }
+
+  // Reset the bet input field
+  bet.value = '';
+}
+
+function logMessage(message) {
+  log.innerHTML = `<p>${message}</p>` + log.innerHTML;
 }
 
 
